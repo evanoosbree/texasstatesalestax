@@ -1,441 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Texas State Sales Tax Calculator | City-by-City Guide</title>
+  <meta charset="utf-8" />
+  <title>Texas State Sales Tax 2026 – Rates, Calculator, and Local Guide</title>
+  <meta name="description" content="Texas state sales tax is 6.25% plus local rates up to 2% for a maximum of 8.25%. Use our Texas sales tax calculator, city-by-city overview, and links to the official Texas Comptroller rate tools." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="TexasStateSalesTax.com helps you estimate Texas state and local sales tax. Use the calculator, learn how Texas sales tax works, and see city-by-city overviews for Dallas, Houston, Austin, San Antonio, Fort Worth and more." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://texasstatesalestax.com/" />
 
-  <!-- Basic styling -->
   <style>
     :root {
-      --primary: #0c4a6e;
-      --accent: #16a34a;
-      --bg: #f1f5f9;
-      --card: #ffffff;
+      --bg: #f7fafc;
+      --card-bg: #ffffff;
       --border: #e2e8f0;
-      --text: #0f172a;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --text-main: #1f2933;
+      --text-muted: #4b5563;
+      --radius: 10px;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       line-height: 1.6;
     }
+
     header {
-      background: var(--primary);
-      color: #fff;
-      padding: 2.5rem 1.25rem;
-      text-align: center;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 2.5rem 1.5rem 2rem;
     }
+
+    header .inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
     header h1 {
       margin: 0 0 0.5rem;
-      font-size: 2.1rem;
+      font-size: 1.9rem;
     }
+
     header p {
-      margin: 0;
-      max-width: 640px;
-      margin-inline: auto;
-      font-size: 1rem;
-      opacity: 0.95;
+      margin: 0.25rem 0;
+      color: #cbd5f5;
+      max-width: 720px;
+      font-size: 0.98rem;
     }
+
+    header .tagline {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
     main {
       max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1.25rem 3rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
     }
-    .card {
-      background: var(--card);
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
-      padding: 1.75rem 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 0;
-      color: var(--primary);
-    }
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-    input[type="number"],
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 0.6rem 0.7rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--border);
-      font-size: 1rem;
-      margin-bottom: 0.9rem;
-    }
-    button {
-      background: var(--accent);
-      border: none;
-      color: #fff;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    button:hover { opacity: 0.9; }
-    .results {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px dashed var(--border);
-      font-weight: 600;
-    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
       gap: 1.5rem;
+      margin-bottom: 2rem;
     }
-    .city-section h3 {
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.4rem 1.6rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
       margin-top: 0;
-      color: var(--primary);
-      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
     }
-    .disclaimer {
-      font-size: 0.85rem;
-      color: #64748b;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.98rem;
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.35rem 0 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
       margin-top: 0.75rem;
     }
-    footer {
-      text-align: center;
+
+    .fact {
+      border-radius: 8px;
+      padding: 0.6rem 0.7rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
       font-size: 0.85rem;
-      color: #64748b;
-      padding: 1.5rem 1rem 2.5rem;
     }
-    a { color: #0369a1; }
+
+    .fact strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.86rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    input, select, button {
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.5rem 0.55rem;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      margin-bottom: 0.6rem;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 6px;
+      border: none;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.25rem;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .calc-result {
+      margin-top: 0.9rem;
+      padding: 0.7rem 0.75rem;
+      border-radius: 8px;
+      background: #f1f5f9;
+      border: 1px dashed #cbd5e1;
+      font-size: 0.92rem;
+    }
+
+    .calc-result strong {
+      display: block;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 0.4rem 0.45rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .section > p {
+      max-width: 780px;
+    }
+
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    footer p {
+      margin: 0.2rem 0;
+    }
+
+    code {
+      background: #e5e7eb;
+      padding: 0.1rem 0.25rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
   </style>
 
-  <!-- JSON-LD SEO schema -->
+  <!-- Primary structured data for the page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Texas State Sales Tax Calculator & City-by-City Guide",
+    "name": "Texas State Sales Tax – Rates and Calculator",
     "url": "https://texasstatesalestax.com/",
-    "description": "Interactive Texas state sales tax calculator with city-by-city overviews of how Texas state (6.25%) and local sales tax work, plus FAQs and resources.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "TexasStateSalesTax.com"
-    },
-    "mainEntity": [{
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the Texas state sales tax rate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Texas imposes a 6.25% state sales and use tax on most taxable sales. Local jurisdictions such as cities, counties, special districts and transit authorities can add up to 2% in additional sales and use tax. The maximum combined rate is 8.25% in any Texas location, according to the Texas Comptroller of Public Accounts."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I calculate Texas sales tax on a purchase?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Multiply the combined tax rate for the location (state plus applicable local rates) by the taxable sale amount. For example, at a combined rate of 8.25%, a $100 taxable purchase would have $8.25 of sales tax for a total of $108.25. Local rates vary by jurisdiction, so always confirm the exact rate with the Texas Comptroller's sales tax rate lookup before filing returns."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do Texas sales tax rates change by city?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. While the state rate is 6.25% everywhere in Texas, local sales and use taxes can differ by city, county, transit authority and special-purpose district. Total local tax is capped at 2%, so the maximum combined rate is 8.25%. Two addresses in the same metro area can have different combined rates. The official sales tax rate locator from the Texas Comptroller is the authoritative source for current city-by-city and address-specific rates."
-          }
+    "description": "Current Texas state sales tax rate (6.25%) plus local rates up to 2% for a maximum of 8.25%. Includes a Texas sales tax calculator, city overviews, and links to official Comptroller resources.",
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- FAQ schema to strengthen SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Texas state sales tax rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Texas state sales and use tax rate is 6.25 percent on most taxable retail sales, leases, and rentals of goods and services. Local jurisdictions may add additional sales and use tax on top of the state rate, subject to a cap on the total local rate."
         }
-      ]
-    }]
+      },
+      {
+        "@type": "Question",
+        "name": "What is the maximum combined sales tax rate in Texas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Local taxing jurisdictions such as cities, counties, special purpose districts, and transit authorities may impose up to 2 percent in local sales and use taxes. Combined with the 6.25 percent state rate, the maximum total sales and use tax rate in Texas is 8.25 percent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find my local Texas sales tax rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can use the official Texas Sales Tax Rate Locator provided by the Texas Comptroller. Enter your address to see the exact state and local sales tax rates that apply at that location."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Texas have a use tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Texas use tax applies when taxable items are stored, used, or consumed in Texas and Texas sales tax was not collected at the time of purchase. The state use tax rate is 6.25 percent, and you may owe up to an additional 2 percent in local use taxes, matching the local sales tax rate at the location where the item is used."
+        }
+      }
+    ]
   }
   </script>
 </head>
 
 <body>
-<header>
-  <h1>Texas State Sales Tax Calculator</h1>
-  <p>
-    Quickly estimate Texas state and local sales tax, then dive into city-by-city
-    overviews for major metro areas. Always verify final rates with the Texas
-    Comptroller before filing or remitting tax.
-  </p>
-</header>
-
-<main>
-  <!-- Calculator card -->
-  <section class="card" id="calculator">
-    <h2>Texas Sales Tax Calculator</h2>
-    <p>
-      Texas currently charges a <strong>6.25% state sales tax</strong>. Local
-      jurisdictions can add up to <strong>2%</strong> more, for a maximum
-      combined rate of <strong>8.25%</strong> statewide.
-    </p>
-
-    <form id="tax-form" onsubmit="event.preventDefault(); calculateTax();">
-      <label for="amount">Taxable sale amount (USD)</label>
-      <input id="amount" type="number" min="0" step="0.01" placeholder="100.00" required />
-
-      <label for="locationRate">Combined tax rate (%)</label>
-      <input id="locationRate" type="number" min="6.25" max="8.25" step="0.01"
-             value="8.25" />
-
-      <label for="city">City or area (optional)</label>
-      <select id="city" onchange="setRateFromCity()">
-        <option value="">Choose a city (optional)</option>
-        <option value="Dallas">Dallas metro (example)</option>
-        <option value="Houston">Houston metro (example)</option>
-        <option value="Austin">Austin metro (example)</option>
-        <option value="San Antonio">San Antonio metro (example)</option>
-        <option value="Fort Worth">Fort Worth &amp; Tarrant Co. (example)</option>
-        <option value="El Paso">El Paso (example)</option>
-        <option value="Arlington">Arlington (example)</option>
-        <option value="Corpus Christi">Corpus Christi (example)</option>
-        <option value="Plano">Plano (example)</option>
-        <option value="Lubbock">Lubbock (example)</option>
-      </select>
-
-      <button type="submit">Calculate sales tax</button>
-
-      <div class="results" id="results" aria-live="polite"></div>
-
-      <p class="disclaimer">
-        This calculator is for educational and planning purposes only and uses
-        user-supplied or example rates. For official, address-level tax rates,
-        always confirm with the
-        <a href="https://comptroller.texas.gov/taxes/sales/" target="_blank" rel="noopener">
-          Texas Comptroller of Public Accounts
-        </a>.
+  <header>
+    <div class="inner">
+      <div class="tagline">Independent reference site – not affiliated with the State of Texas</div>
+      <h1>Texas State Sales Tax Guide &amp; Calculator (2026)</h1>
+      <p>
+        Understand how Texas sales and use tax works: the 6.25% state rate, local add-ons up to 2% (for a maximum of 8.25%), city examples, and an easy calculator to estimate tax on purchases in Texas.
       </p>
-    </form>
-  </section>
+      <p class="muted">
+        Always confirm final rates using the official Texas Sales Tax Rate Locator and current Comptroller guidance.
+      </p>
+    </div>
+  </header>
 
-  <!-- City-by-city SEO content -->
-  <section class="card" id="texas-overview">
-    <h2>How Texas State and Local Sales Tax Work</h2>
-    <p>
-      Texas is a destination-based sales tax state. The state portion of the
-      sales and use tax is <strong>6.25%</strong> everywhere. Local jurisdictions
-      (cities, counties, special-purpose districts and transit authorities) can
-      each levy additional sales and use taxes, but the total local portion is
-      capped at <strong>2%</strong>. That means the combined rate you pay at the
-      register can range from <strong>6.25%</strong> up to a maximum of
-      <strong>8.25%</strong> depending on where the sale is sourced.
-    </p>
-    <p>
-      Because of this, two addresses in the same metro area can have slightly
-      different combined rates. Merchants and remote sellers should always verify
-      the correct rate using the state’s official <em>Sales Tax Rate Locator</em>
-      before collecting or filing.
-    </p>
-  </section>
-
-  <section class="card" id="city-by-city">
-    <h2>Texas Sales Tax: City-by-City Overviews</h2>
-    <p>
-      The sections below give high-level overviews for major Texas metro areas.
-      They all share the same state rate (6.25%), but local city, county,
-      transit and special-purpose taxes can vary. These summaries are for
-      orientation only &mdash; they are not a substitute for an official rate
-      lookup.
-    </p>
-
+  <main>
     <div class="grid">
-      <article class="city-section" id="dallas-sales-tax">
-        <h3>Dallas sales tax overview</h3>
+      <!-- Left: main explainer -->
+      <section class="card" id="overview">
+        <span class="badge">Texas sales &amp; use tax snapshot</span>
+        <h2>How Texas Sales Tax Works</h2>
         <p>
-          Taxable sales in the Dallas area are subject to the statewide
-          <strong>6.25%</strong> Texas sales tax plus applicable local city,
-          county, transit and special district taxes. Many addresses in the City
-          of Dallas reach the maximum combined rate of <strong>8.25%</strong>,
-          but surrounding suburbs can differ based on which districts apply.
+          Texas imposes a <strong>6.25% state sales and use tax</strong> on most taxable retail sales, leases, and rentals of goods and services. Local taxing jurisdictions (cities, counties, special-purpose districts, and transit authorities) can add up to <strong>2.00%</strong> in local tax, so the <strong>maximum combined rate is 8.25%</strong>.
         </p>
-      </article>
+        <div class="facts">
+          <div class="fact">
+            <strong>State rate</strong>
+            6.25% statewide base sales &amp; use tax
+          </div>
+          <div class="fact">
+            <strong>Local add-ons</strong>
+            Cities, counties, transit &amp; special districts up to 2.00% total
+          </div>
+          <div class="fact">
+            <strong>Max combined</strong>
+            8.25% total sales &amp; use tax cap on a taxable sale
+          </div>
+          <div class="fact">
+            <strong>Use tax</strong>
+            Same rates as sales tax when tax wasn’t collected at purchase
+          </div>
+        </div>
 
-      <article class="city-section" id="houston-sales-tax">
-        <h3>Houston sales tax overview</h3>
-        <p>
-          In the Houston metro, the state’s 6.25% rate applies to most taxable
-          retail sales, and local jurisdictions may add up to 2% in additional
-          tax. Addresses inside the city limits often reach the combined cap,
-          while locations in surrounding counties can reflect different local
-          combinations.
-        </p>
-      </article>
+        <h3>Official Texas Comptroller resources</h3>
+        <ul>
+          <li>
+            <a href="https://comptroller.texas.gov/taxes/sales/" target="_blank" rel="noopener">
+              Sales and Use Tax – Texas Comptroller
+            </a>
+          </li>
+          <li>
+            <a href="https://gis.cpa.texas.gov/" target="_blank" rel="noopener">
+              Sales Tax Rate Locator (by address)
+            </a>
+          </li>
+          <li>
+            <a href="https://comptroller.texas.gov/taxes/publications/94-105.php" target="_blank" rel="noopener">
+              Local Sales and Use Tax Collection – Guide for Sellers (Publication 94-105)
+            </a>
+          </li>
+          <li>
+            <a href="https://comptroller.texas.gov/taxes/sales/use-tax.php" target="_blank" rel="noopener">
+              Texas Use Tax information
+            </a>
+          </li>
+        </ul>
 
-      <article class="city-section" id="austin-sales-tax">
-        <h3>Austin sales tax overview</h3>
-        <p>
-          Austin-area sellers collect the Texas state sales tax and any local
-          sales and use taxes that apply at the place of business or delivery.
-          The combined rate in many Austin addresses reaches 8.25%, but rates
-          can vary in neighboring communities and special-purpose districts.
+        <p class="muted">
+          This site is for general informational and educational purposes only and does not provide legal, tax, or accounting advice. For official rules, always rely on the Texas Comptroller of Public Accounts.
         </p>
-      </article>
+      </section>
 
-      <article class="city-section" id="san-antonio-sales-tax">
-        <h3>San Antonio sales tax overview</h3>
-        <p>
-          San Antonio transactions generally include the 6.25% state portion
-          plus city, county, transit and possibly special district tax up to the
-          2% local cap. Businesses that ship or deliver within the metro should
-          verify the correct local rate for each delivery address.
+      <!-- Right: calculator -->
+      <section class="card" id="calculator">
+        <span class="badge">Calculator</span>
+        <h2>Texas Sales Tax Calculator</h2>
+        <p class="muted">
+          Estimate sales tax on a purchase in Texas. Local rates vary by exact address, so treat this as an approximation and confirm using the official locator.
         </p>
-      </article>
 
-      <article class="city-section" id="fort-worth-sales-tax">
-        <h3>Fort Worth &amp; Tarrant County sales tax overview</h3>
-        <p>
-          Fort Worth uses the statewide 6.25% sales tax and one or more local
-          jurisdiction rates, up to a maximum combined rate of 8.25%. Addresses
-          in Tarrant County outside of the Fort Worth city limits can fall under
-          different local combinations and should be checked individually.
-        </p>
-      </article>
+        <label for="amount" class="label">Purchase amount (before tax)</label>
+        <input id="amount" type="number" step="0.01" min="0" placeholder="Example: 100.00" />
 
-      <article class="city-section" id="el-paso-sales-tax">
-        <h3>El Paso sales tax overview</h3>
-        <p>
-          El Paso businesses collect the 6.25% state tax and local sales and use
-          taxes that apply within city and county boundaries. Combined rates
-          commonly approach the statewide maximum of 8.25%, but specific
-          addresses should still be verified through the Comptroller’s tools.
-        </p>
-      </article>
+        <label for="cityPreset" class="label">Location preset (optional)</label>
+        <select id="cityPreset">
+          <option value="custom" selected>Custom – I will enter local rate</option>
+          <option value="base">Statewide base only (6.25% total)</option>
+          <option value="austin">Austin – typical combined 8.25%</option>
+          <option value="dallas">Dallas – typical combined 8.25%</option>
+          <option value="houston">Houston – typical combined 8.25%</option>
+          <option value="sanantonio">San Antonio – typical combined 8.25%</option>
+        </select>
 
-      <article class="city-section" id="corpus-christi-sales-tax">
-        <h3>Corpus Christi sales tax overview</h3>
-        <p>
-          Corpus Christi shoppers generally pay the Texas state sales tax plus
-          applicable city, county and district taxes. As with other coastal and
-          port areas, the combined rate can reach 8.25% depending on the local
-          jurisdictions that apply to a given address.
-        </p>
-      </article>
+        <div class="two-col">
+          <div>
+            <label for="stateRate" class="label">State rate (%)</label>
+            <input id="stateRate" type="number" step="0.01" min="0" max="10" value="6.25" />
+          </div>
+          <div>
+            <label for="localRate" class="label">Local rate (%)</label>
+            <input id="localRate" type="number" step="0.01" min="0" max="2.00" value="2.00" />
+          </div>
+        </div>
 
-      <article class="city-section" id="plano-sales-tax">
-        <h3>Plano &amp; North Dallas suburbs sales tax overview</h3>
-        <p>
-          Suburbs such as Plano, Frisco, McKinney and Allen layer local sales
-          and use taxes on top of the 6.25% state rate. Many addresses reach the
-          8.25% cap, but overlapping special-purpose and transit districts mean
-          that even nearby locations can differ slightly.
-        </p>
-      </article>
+        <button type="button" id="calcBtn">Calculate tax</button>
 
-      <article class="city-section" id="lubbock-sales-tax">
-        <h3>Lubbock sales tax overview</h3>
-        <p>
-          In Lubbock and the South Plains region, the state sales tax applies to
-          most taxable transactions, with local city and county rates added up
-          to the 2% local cap. Agricultural and manufacturing-related purchases
-          may qualify for specific exemptions under Texas law.
+        <div id="calcResult" class="calc-result" style="display:none;">
+          <strong>Result</strong>
+          <div id="calcSummary"></div>
+        </div>
+
+        <p class="muted">
+          Note: Local tax rates are capped at 2.00%, and the maximum combined state + local rate is 8.25% on a taxable transaction.
         </p>
-      </article>
+      </section>
     </div>
 
-    <p class="disclaimer">
-      For precise city-by-city rates, always use the official
-      <a href="https://comptroller.texas.gov/taxes/sales/" target="_blank" rel="noopener">
-        Texas Sales &amp; Use Tax Rate Locator
-      </a> and follow the Comptroller’s guidance for sourcing rules and local
-      jurisdiction boundaries.
-    </p>
-  </section>
+    <!-- City sections -->
+    <section class="section card" id="city-rates">
+      <span class="badge">City snapshots</span>
+      <h2>Sales Tax by City (Examples)</h2>
+      <p>
+        Local sales tax rates vary across Texas. Many large cities have a combined rate of <strong>8.25%</strong> (6.25% state + 2.00% local). Exact rates can differ inside the same city depending on address and special districts, so always verify using the official Sales Tax Rate Locator.
+      </p>
 
-  <section class="card" id="faq">
-    <h2>Texas Sales Tax FAQs</h2>
-    <h3>Is there a separate Texas use tax?</h3>
-    <p>
-      Yes. Texas imposes a complementary use tax at the same rates as the sales
-      tax when taxable items are purchased without paying the correct Texas tax
-      at the time of sale (for example, items shipped in from out of state).
-    </p>
+      <table aria-label="Example Texas city sales tax rates">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>State rate</th>
+            <th>Local rate (approx.)</th>
+            <th>Typical combined rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="austin-sales-tax">
+            <td><strong>Austin</strong></td>
+            <td>6.25%</td>
+            <td>2.00% (city + transit / special districts)</td>
+            <td><strong>8.25%</strong></td>
+          </tr>
+          <tr id="dallas-sales-tax">
+            <td><strong>Dallas</strong></td>
+            <td>6.25%</td>
+            <td>2.00% (city + transit / special districts)</td>
+            <td><strong>8.25%</strong></td>
+          </tr>
+          <tr id="houston-sales-tax">
+            <td><strong>Houston</strong></td>
+            <td>6.25%</td>
+            <td>2.00% (city + METRO / special districts)</td>
+            <td><strong>8.25%</strong></td>
+          </tr>
+          <tr id="san-antonio-sales-tax">
+            <td><strong>San Antonio</strong></td>
+            <td>6.25%</td>
+            <td>2.00% (city + transit / special districts)</td>
+            <td><strong>8.25%</strong></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h3>Are groceries and medicine taxable in Texas?</h3>
-    <p>
-      Most unprepared food for home consumption and many prescription medicines
-      are exempt from Texas state and local sales and use tax. However, prepared
-      food, restaurant meals and many over-the-counter items remain taxable.
-    </p>
+      <p class="muted">
+        These are common combined rates as of recent guidance. Within each city, some addresses may differ slightly. The authoritative source for a specific address is the Texas Comptroller's Sales Tax Rate Locator.
+      </p>
+    </section>
 
-    <h3>Where can I find official Texas sales tax guidance?</h3>
-    <p>
-      The Texas Comptroller of Public Accounts provides official rules,
-      publications and online tools for rate lookup, permitting and filing
-      returns. Always rely on those resources when you have compliance
-      questions.
-    </p>
-  </section>
-</main>
+    <!-- Use tax and compliance -->
+    <section class="section card" id="use-tax">
+      <span class="badge">Use tax</span>
+      <h2>Texas Use Tax Basics</h2>
+      <p>
+        Texas use tax applies when you buy a taxable item and <strong>no Texas sales tax was collected</strong>, but you store, use, or consume the item in Texas. The <strong>state use tax rate is also 6.25%</strong>, and you may owe up to <strong>2.00% in local use tax</strong>, matching the local sales tax rate at your location.
+      </p>
+      <p>
+        Common examples include online or out-of-state purchases where the seller doesn’t charge Texas tax. In those cases, the Texas purchaser is responsible for paying use tax directly to the Comptroller when required.
+      </p>
+      <p>
+        For full rules and reporting requirements, see:
+      </p>
+      <ul>
+        <li>
+          <a href="https://comptroller.texas.gov/taxes/sales/use-tax.php" target="_blank" rel="noopener">
+            Texas Use Tax – Texas Comptroller
+          </a>
+        </li>
+        <li>
+          <a href="https://comptroller.texas.gov/taxes/publications/94-105.php" target="_blank" rel="noopener">
+            Local Sales and Use Tax Collection – Guide for Sellers
+          </a>
+        </li>
+      </ul>
+    </section>
 
-<footer>
-  &copy; <span id="year"></span> TexasStateSalesTax.com &mdash; Informational
-  resource only. This site does not provide legal, tax or accounting advice.
-</footer>
+    <!-- FAQ for humans (matches FAQ schema) -->
+    <section class="section card" id="faq">
+      <span class="badge">FAQ</span>
+      <h2>Texas Sales Tax – Frequently Asked Questions</h2>
 
-<script>
-  // Update footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
+      <h3>What is the Texas state sales tax rate?</h3>
+      <p>
+        The statewide Texas sales and use tax rate is <strong>6.25%</strong> on most taxable sales of goods and services.
+      </p>
 
-  // Simple calculator logic
-  function calculateTax() {
-    const amountInput = document.getElementById('amount');
-    const rateInput = document.getElementById('locationRate');
-    const results = document.getElementById('results');
+      <h3>What is the maximum total sales tax rate?</h3>
+      <p>
+        Local jurisdictions can impose up to <strong>2.00%</strong> combined in local sales and use taxes. When added to the 6.25% state rate, the maximum combined rate on a taxable transaction in Texas is <strong>8.25%</strong>.
+      </p>
 
-    const amount = parseFloat(amountInput.value);
-    const rate = parseFloat(rateInput.value);
+      <h3>How do I find my exact local rate?</h3>
+      <p>
+        Go to the official Texas <a href="https://gis.cpa.texas.gov/" target="_blank" rel="noopener">Sales Tax Rate Locator</a> and enter your address. It will show you which taxing entities apply and the correct combined rate.
+      </p>
 
-    if (isNaN(amount) || isNaN(rate)) {
-      results.textContent = "Enter a valid amount and tax rate.";
-      return;
+      <h3>Are groceries and prescriptions taxed?</h3>
+      <p>
+        Most unprepared food for home consumption and many prescription medicines are exempt from Texas sales tax. Some items (like certain prepared foods, restaurant meals, and non-food items) remain taxable. For detailed exemption lists, refer to the Comptroller’s official publications.
+      </p>
+
+      <h3>Is this site an official Texas government site?</h3>
+      <p>
+        No. TexasStateSalesTax.com is an independent informational site and is <strong>not affiliated with or endorsed by</strong> the State of Texas or the Texas Comptroller of Public Accounts.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Disclaimer:</strong> Rates and examples on this site are provided for general informational purposes only and may change. Always confirm current rates and rules using official Texas Comptroller resources or a qualified tax professional.</p>
+    <p>&copy; <span id="year"></span> TexasStateSalesTax.com – Independent informational site.</p>
+  </footer>
+
+  <script>
+    // Keep footer year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const amountInput = document.getElementById("amount");
+    const stateRateInput = document.getElementById("stateRate");
+    const localRateInput = document.getElementById("localRate");
+    const cityPresetSelect = document.getElementById("cityPreset");
+    const calcBtn = document.getElementById("calcBtn");
+    const calcResult = document.getElementById("calcResult");
+    const calcSummary = document.getElementById("calcSummary");
+
+    function applyPreset() {
+      const preset = cityPresetSelect.value;
+
+      if (preset === "base") {
+        stateRateInput.value = "6.25";
+        localRateInput.value = "0.00";
+      } else if (preset === "austin" || preset === "dallas" || preset === "houston" || preset === "sanantonio") {
+        // Typical combined = 8.25% -> local = 2.00%
+        stateRateInput.value = "6.25";
+        localRateInput.value = "2.00";
+      }
+      // "custom" does not change any values
     }
 
-    const taxRateDecimal = rate / 100;
-    const taxAmount = amount * taxRateDecimal;
-    const total = amount + taxAmount;
+    function calculateTax() {
+      const amount = parseFloat(amountInput.value);
+      const stateRate = parseFloat(stateRateInput.value);
+      const localRate = parseFloat(localRateInput.value);
 
-    results.innerHTML =
-      "Combined rate: <strong>" + rate.toFixed(2) + "%</strong><br>" +
-      "Estimated sales tax: <strong>$" + taxAmount.toFixed(2) + "</strong><br>" +
-      "Total with tax: <strong>$" + total.toFixed(2) + "</strong>";
-  }
+      if (Number.isNaN(amount) || amount < 0) {
+        calcResult.style.display = "block";
+        calcSummary.textContent = "Enter a valid purchase amount greater than or equal to 0.";
+        return;
+      }
 
-  // Optional helper: set example rates when a city is chosen
-  function setRateFromCity() {
-    const city = document.getElementById('city').value;
-    const rateInput = document.getElementById('locationRate');
+      const totalRate = (stateRate || 0) + (localRate || 0);
+      const taxAmount = amount * (totalRate / 100);
+      const stateAmount = amount * ((stateRate || 0) / 100);
+      const localAmount = amount * ((localRate || 0) / 100);
+      const totalWithTax = amount + taxAmount;
 
-    // These are example combined rates commonly seen in large Texas metros.
-    // They may change; users must confirm with the Texas Comptroller.
-    const exampleRates = {
-      "Dallas": 8.25,
-      "Houston": 8.25,
-      "Austin": 8.25,
-      "San Antonio": 8.25,
-      "Fort Worth": 8.25,
-      "El Paso": 8.25,
-      "Arlington": 8.25,
-      "Corpus Christi": 8.25,
-      "Plano": 8.25,
-      "Lubbock": 8.25
-    };
-
-    if (exampleRates[city]) {
-      rateInput.value = exampleRates[city].toFixed(2);
+      calcResult.style.display = "block";
+      calcSummary.innerHTML =
+        "Purchase amount: $" + amount.toFixed(2) + "<br>" +
+        "State tax (" + (stateRate || 0).toFixed(2) + "%): $" + stateAmount.toFixed(2) + "<br>" +
+        "Local tax (" + (localRate || 0).toFixed(2) + "%): $" + localAmount.toFixed(2) + "<br>" +
+        "<strong>Total tax (" + totalRate.toFixed(2) + "%): $" + taxAmount.toFixed(2) + "</strong><br>" +
+        "Total with tax: $" + totalWithTax.toFixed(2);
     }
-  }
-</script>
+
+    cityPresetSelect.addEventListener("change", applyPreset);
+    calcBtn.addEventListener("click", calculateTax);
+  </script>
 </body>
 </html>
